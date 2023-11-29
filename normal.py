@@ -6,7 +6,7 @@ from scipy.optimize import curve_fit
 from scipy.stats import chi2
 
 # Load data from a CSV file
-file_path = 'C:/college/asm_assg/Rajasthan1/windspeed.csv'
+file_path = 'windspeed.csv'
 df = pd.read_csv(file_path)
 
 # Assuming your data is in a column named 'data'

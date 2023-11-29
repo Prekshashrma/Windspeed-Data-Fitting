@@ -4,7 +4,7 @@ from scipy.stats import gamma
 import matplotlib.pyplot as plt
 
 # Load the dataset from the CSV file
-file_path = 'C:/college/asm_assg/Rajasthan1/windspeed.csv'
+file_path = 'windspeed.csv'
 data = pd.read_csv(file_path)
 
 # Assuming your windspeed data is in a column named 'windspeed'
