@@ -4,7 +4,7 @@ from scipy.stats import beta, kstest
 import matplotlib.pyplot as plt
 
 # Load the CSV file into a Pandas DataFrame
-file_path = 'C:/college/asm_assg/Rajasthan1/windspeed.csv'
+file_path = 'windspeed.csv'
 df = pd.read_csv(file_path)
 
 # Assuming your wind speed data is in a column named 'windspeed'
