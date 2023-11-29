@@ -27,6 +27,8 @@ lambda_est, k_est = result.x
 print("Estimated lambda:", lambda_est)
 print("Estimated k:", k_est)
 
+expected_values = weibull_min.cdf(wind_speed_data, c=k_est, scale=lambda_est)
+
 # Plot the histogram of the data and the fitted Weibull distribution
 plt.hist(wind_speed_data, bins=50, density=True, alpha=0.6, color='g', label='Histogram')
 x = np.linspace(min(wind_speed_data), max(wind_speed_data), 100)
@@ -36,3 +38,18 @@ plt.xlabel('Wind Speed')
 plt.ylabel('Probability Density')
 plt.legend()
 plt.show()
+
+from scipy.stats import kstest
+
+# Perform the Kolmogorov-Smirnov test
+ks_statistic, ks_p_value = kstest(wind_speed_data, 'weibull_min', args=(k_est, 0, lambda_est))
+
+# Print the test results
+print(f"KS Statistic: {ks_statistic}")
+print(f"P-value: {ks_p_value}")
+
+# Interpret the results
+if ks_p_value < 0.05:
+    print("The null hypothesis (data follows the Weibull distribution) is rejected.")
+else:
+    print("The null hypothesis cannot be rejected. The data is consistent with the Weibull distribution.")
